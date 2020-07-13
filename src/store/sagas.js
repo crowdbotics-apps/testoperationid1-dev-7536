@@ -1,6 +1,23 @@
 import { put, call, all, spawn } from "redux-saga/effects"
 import { apiService } from "./services"
 import * as types from "./constants"
+function* checkoperationsid3_get_patient_id_readWorker(action) {
+  try {
+    const result = yield call(
+      apiService.checkoperationsid3_get_patient_id_read,
+      action
+    )
+    yield put(actions.checkoperationsid3_get_patient_id_readSucceeded(result))
+  } catch (err) {
+    yield put(actions.checkoperationsid3_get_patient_id_readFailed(err))
+  }
+}
+function* checkoperationsid3_get_patient_id_readWatcher() {
+  yield takeEvery(
+    types.CHECKOPERATIONSID3_GET_PATIENT_ID_READ,
+    checkoperationsid3_get_patient_id_readWorker
+  )
+}
 function* checkoperationsid2_get_patient_id_readWorker(action) {
   try {
     const result = yield call(
@@ -312,6 +329,7 @@ function* rest_auth_user_partial_updateWatcher() {
 }
 export default function* rootSaga() {
   const sagas = [
+    checkoperationsid3_get_patient_id_readWatcher,
     checkoperationsid2_get_patient_id_readWatcher,
     checkoperationsid1_get_patient_id_readWatcher,
     api_v1_customtext_listWatcher,
