@@ -4,6 +4,9 @@ const initialState = {}
 
 export default function apiReducer(state = initialState, action) {
   switch (action.type) {
+    case types.CHECKOPERATIONID13_GET_BANANA_ID_READ:
+    case types.CHECKOPERATIONID13_GET_BANANA_ID_READ_SUCCEEDED:
+    case types.CHECKOPERATIONID13_GET_BANANA_ID_READ_FAILED:
     case types.CHECKOPERATIONID11_GET_APPLE_ID_READ:
     case types.CHECKOPERATIONID11_GET_APPLE_ID_READ_SUCCEEDED:
     case types.CHECKOPERATIONID11_GET_APPLE_ID_READ_FAILED:
