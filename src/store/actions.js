@@ -337,15 +337,30 @@ export const checkoperationsid4_get_patient_id_readFailed = error => ({
   type: types.CHECKOPERATIONSID4_GET_PATIENT_ID_READ_FAILED,
   error
 })
+
 export const checkoperationidplugin1_get_orange_id_read = id => ({
   type: types.CHECKOPERATIONIDPLUGIN1_GET_ORANGE_ID_READ,
   id
 })
+
 export const checkoperationidplugin1_get_orange_id_readSucceeded = response => ({
   type: types.CHECKOPERATIONIDPLUGIN1_GET_ORANGE_ID_READ_SUCCEEDED,
   response
 })
+
 export const checkoperationidplugin1_get_orange_id_readFailed = error => ({
   type: types.CHECKOPERATIONIDPLUGIN1_GET_ORANGE_ID_READ_FAILED,
+  error
+})
+export const checkoperationid11_get_apple_id_read = id => ({
+  type: types.CHECKOPERATIONID11_GET_APPLE_ID_READ,
+  id
+})
+export const checkoperationid11_get_apple_id_readSucceeded = response => ({
+  type: types.CHECKOPERATIONID11_GET_APPLE_ID_READ_SUCCEEDED,
+  response
+})
+export const checkoperationid11_get_apple_id_readFailed = error => ({
+  type: types.CHECKOPERATIONID11_GET_APPLE_ID_READ_FAILED,
   error
 })

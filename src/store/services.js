@@ -1,5 +1,7 @@
 import axios from "axios"
 import {
+  CHECKOPERATIONID11_USERNAME,
+  CHECKOPERATIONID11_PASSWORD,
   CHECKOPERATIONIDPLUGIN1_USERNAME,
   CHECKOPERATIONIDPLUGIN1_PASSWORD,
   CHECKOPERATIONSID4_USERNAME,
@@ -11,6 +13,14 @@ import {
   CHECKOPERATIONSID1_USERNAME,
   CHECKOPERATIONSID1_PASSWORD
 } from "react-native-dotenv"
+const checkoperationid11 = axios.create({
+  baseURL: "https://www.google.com",
+  auth: {
+    username: CHECKOPERATIONID11_USERNAME,
+    password: CHECKOPERATIONID11_PASSWORD
+  },
+  headers: { Accept: "application/json", "Content-Type": "application/json" }
+})
 const checkoperationidplugin1 = axios.create({
   baseURL: "https://www.google.com",
   auth: {
@@ -55,6 +65,9 @@ const testOperationID1API = axios.create({
   baseURL: "https://testoperationid1-dev-7536.herokuapp.com/",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function checkoperationid11_get_apple_id_read({ id }) {
+  return checkoperationid11.get(`/apple/{id}`, { params: { id: id } })
+}
 function checkoperationidplugin1_get_orange_id_read({ id }) {
   return checkoperationidplugin1.get(`/orange/{id}`, { params: { id: id } })
 }
@@ -140,6 +153,7 @@ function rest_auth_user_partial_update(requestBody) {
   return testOperationID1API.patch(`/rest-auth/user/`, requestBody)
 }
 export const apiService = {
+  checkoperationid11_get_apple_id_read,
   checkoperationidplugin1_get_orange_id_read,
   checkoperationsid4_get_patient_id_read,
   checkoperationsid3_get_patient_id_read,
