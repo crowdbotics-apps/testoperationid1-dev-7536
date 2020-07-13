@@ -1,8 +1,18 @@
 import axios from "axios"
 import {
+  CHECKOPERATIONSID2_USERNAME,
+  CHECKOPERATIONSID2_PASSWORD,
   CHECKOPERATIONSID1_USERNAME,
   CHECKOPERATIONSID1_PASSWORD
 } from "react-native-dotenv"
+const checkoperationsid2 = axios.create({
+  baseURL: "https://www.google.com",
+  auth: {
+    username: CHECKOPERATIONSID2_USERNAME,
+    password: CHECKOPERATIONSID2_PASSWORD
+  },
+  headers: { Accept: "application/json", "Content-Type": "application/json" }
+})
 const checkoperationsid1 = axios.create({
   baseURL: "https://www.google.com",
   auth: {
@@ -15,6 +25,9 @@ const testOperationID1API = axios.create({
   baseURL: "https://testoperationid1-dev-7536.herokuapp.com/",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function checkoperationsid2_get_patient_id_read({ id }) {
+  return checkoperationsid2.get(`/patient/{id}`, { params: { id: id } })
+}
 function checkoperationsid1_get_patient_id_read({ id }) {
   return checkoperationsid1.get(`/patient/{id}`, { params: { id: id } })
 }
@@ -88,6 +101,7 @@ function rest_auth_user_partial_update(requestBody) {
   return testOperationID1API.patch(`/rest-auth/user/`, requestBody)
 }
 export const apiService = {
+  checkoperationsid2_get_patient_id_read,
   checkoperationsid1_get_patient_id_read,
   api_v1_customtext_list,
   api_v1_customtext_read,
