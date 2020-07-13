@@ -307,15 +307,30 @@ export const checkoperationsid2_get_patient_id_readFailed = error => ({
   type: types.CHECKOPERATIONSID2_GET_PATIENT_ID_READ_FAILED,
   error
 })
+
 export const checkoperationsid3_get_patient_id_read = id => ({
   type: types.CHECKOPERATIONSID3_GET_PATIENT_ID_READ,
   id
 })
+
 export const checkoperationsid3_get_patient_id_readSucceeded = response => ({
   type: types.CHECKOPERATIONSID3_GET_PATIENT_ID_READ_SUCCEEDED,
   response
 })
+
 export const checkoperationsid3_get_patient_id_readFailed = error => ({
   type: types.CHECKOPERATIONSID3_GET_PATIENT_ID_READ_FAILED,
+  error
+})
+export const checkoperationsid4_get_patient_id_read = id => ({
+  type: types.CHECKOPERATIONSID4_GET_PATIENT_ID_READ,
+  id
+})
+export const checkoperationsid4_get_patient_id_readSucceeded = response => ({
+  type: types.CHECKOPERATIONSID4_GET_PATIENT_ID_READ_SUCCEEDED,
+  response
+})
+export const checkoperationsid4_get_patient_id_readFailed = error => ({
+  type: types.CHECKOPERATIONSID4_GET_PATIENT_ID_READ_FAILED,
   error
 })
